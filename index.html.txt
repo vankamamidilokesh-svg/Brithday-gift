@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🎂</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+}
+
+.container{
+    padding:20px;
+}
+
+h1{
+    font-size:2.5rem;
+}
+
+p{
+    font-size:1.2rem;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    background:#ff4081;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+button:hover{
+    background:#e91e63;
+}
+
+/* mobile friendly text scaling */
+@media (max-width:600px){
+    h1{
+        font-size:2rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎉 Happy Birthday! 🎂</h1>
+    <p>Wishing you a day filled with happiness, laughter, and lots of cake! 🍰</p>
+    <p>May all your dreams come true! ✨</p>
+
+    <button onclick="celebrate()">Celebrate 🎊</button>
+</div>
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+function celebrate(){
+    var duration = 3 * 1000;
+    var end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
+</script>
+
+</body>
+</html>
